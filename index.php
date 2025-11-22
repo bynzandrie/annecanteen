@@ -3,10 +3,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Log errors to a file
-ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/php_errors.log');
-
 // Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -15,13 +11,8 @@ if (session_status() === PHP_SESSION_NONE) {
 $pageTitle = 'Anne\'s Canteen | Fresh & Fast';
 $currentPage = 'home';
 
-// Check if header file exists
-$headerFile = __DIR__ . '/includes/header.php';
-if (!file_exists($headerFile)) {
-    die('Error: Missing header.php file at ' . $headerFile);
-}
-
-require_once $headerFile;
+// Include header
+require_once __DIR__ . '/includes/header.php';
 ?>
 <section class="hero">
     <div class="hero-content">
